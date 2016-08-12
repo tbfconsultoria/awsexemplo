@@ -13,20 +13,24 @@ $client = new SqsClient([
 $result = $client->createQueue(array('QueueName' => 'dev-test'));
 $queueUrl = $result->get('QueueUrl');
 
-echo $queueUrl;
-
 while (true) {
     echo "BUSCA ...";
     $result = $client->receiveMessage(array(
         'QueueUrl' => $queueUrl,
-        'MaxNumberOfMessages' => 10
+        'MaxNumberOfMessages' => 10,
+        'MessageAttributeNames' => [
+            ".*"
+        ]
     ));
-//    print_r($result->get('Messages'));
+//    print_r($result);
     if (is_array($result->get('Messages'))) {
         foreach ($result->get('Messages') as $message) {
             // Do something with the message
-            echo PHP_EOL . $message['MessageId'] . "\t" . $message['Body'];
-//            print_r($message);
+            echo PHP_EOL . $message['MessageId'];
+            echo PHP_EOL . "" . $message['Body'];
+            foreach ($message['MessageAttributes'] as $attribute => $value) {
+                echo PHP_EOL . "\t" . $attribute . "\t=>" . $value['StringValue'];
+            }
         }
     } else {
         echo "sem mensagens...";

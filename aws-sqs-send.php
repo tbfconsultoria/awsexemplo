@@ -19,8 +19,22 @@ try {
 //
     $client->sendMessage(array(
         'QueueUrl' => $queueUrl,
-        'MessageBody' => 'IDEAL TESTE I!',
+        'MessageBody' => 'Música',
         'DelaySeconds' => 1,
+        'MessageAttributes' => [
+            'banda' => [
+                'DataType' => 'String',
+                'StringValue' => 'The Beatles',
+            ],
+            'musica' => [
+                'DataType' => 'String',
+                'StringValue' => 'She Loves You'
+            ],
+            'tempo' => [
+                'DataType' => 'Number',
+                'StringValue'=> 2.9
+            ]
+        ]
     ));
 
 } catch (Exception $e) {
