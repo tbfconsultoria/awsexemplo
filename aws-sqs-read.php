@@ -5,7 +5,7 @@ use Aws\Sqs\SqsClient;
 
 echo "TESTE SQS LEITURA" . PHP_EOL;
 $client = new SqsClient([
-    'profile' => 'ideal',
+    'profile' => 'acesso1',
     'region' => 'us-east-1',
     'version' => 'latest'
 ]);

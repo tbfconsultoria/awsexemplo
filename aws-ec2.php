@@ -5,7 +5,7 @@ use Aws\Ec2\Ec2Client;
 
 echo "TESTE EC2" . PHP_EOL;
 $client = new Ec2Client([
-    'profile' => 'ideal',
+    'profile' => 'acesso1',
     'region' => 'us-east-1',
     'version' => 'latest'
 ]);

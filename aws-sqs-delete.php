@@ -5,7 +5,7 @@ use Aws\Sqs\SqsClient;
 
 echo "TESTE SQS DELETE" . PHP_EOL;
 $client = new SqsClient([
-    'profile' => 'tbf',
+    'profile' => 'acesso1',
     'region' => 'us-east-1',
     'version' => 'latest'
 ]);
