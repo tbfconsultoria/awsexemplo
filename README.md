@@ -12,3 +12,5 @@ $ cp .aws-credentials.example ~/.aws/credentials
 ```
 e alterando os valores de **aws_access_key_id** e **aws_secret_access_key**
 Veja sobre as [credenciais](http://aws.amazon.com/developers/access-keys/)
+
+Ao instanciar um `client` deve ser passada a chave `profile` para utilizar as chaves definidas no `~/.aws/credentials`
